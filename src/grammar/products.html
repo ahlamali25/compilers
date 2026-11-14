@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products Store</title>
+</head>
+<body>
+
+<h1>Our Products</h1>
+
+<div class="product"
+     th:each="product : ${products}">
+
+    <h2 th:text="${product.name}">Phone</h2>
+
+    <p>
+        Price:
+        <span th:text="${product.price}">500</span>
+    </p>
+
+    <a th:href="@{/products}">
+        View Products
+    </a>
+
+    <p th:if="${product.price > 0}">
+        Available
+    </p>
+
+</div>
+
+<form th:action="@{/products}" method="post"
+      th:object="${product}">
+
+    <input type="text"
+           th:field="*{name}"
+           placeholder="Product Name">
+
+    <button type="submit">Add Product</button>
+
+</form>
+
+</body>
+</html>

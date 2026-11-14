@@ -1,0 +1,12 @@
+public class Product {
+    private String name;
+    private int price;
+    private String details;
+
+
+    // This is a line comment
+
+    /*
+       This is a block comment
+    */
+}
